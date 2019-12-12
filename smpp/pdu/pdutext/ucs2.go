@@ -29,7 +29,8 @@ func (s UCS2) Encode() []byte {
 
 // Decode from UCS2.
 func (s UCS2) Decode() []byte {
-	e := unicode.UTF16(unicode.BigEndian, unicode.IgnoreBOM)
+	//e := unicode.UTF16(unicode.BigEndian, unicode.IgnoreBOM)
+	e := unicode.UTF8
 	es, _, err := transform.Bytes(e.NewDecoder(), s)
 	if err != nil {
 		return s
